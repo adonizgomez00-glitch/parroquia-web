@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Sistema Parroquial</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>📘 Sistema Parroquial</h1>
+
+<p>Gestión de registros bautismales</p>
+
+<br>
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+">
+
+<div>
+
+<b>Usuario:</b>
+{{ session['user'] }}
+
+<br>
+
+<b>Rol:</b>
+{{ session['role'] }}
+
+</div>
+
+<a href="/logout">
+
+<button class="btn-danger">
+Cerrar sesión
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h2 id="formTitle">Nuevo Registro</h2>
+
+<br>
+
+<form id="recordForm">
+
+<input type="hidden" id="recordId">
+
+<input type="text" id="bautizado"
+placeholder="Nombre del bautizado" required>
+
+<input type="text" id="libro"
+placeholder="Libro">
+
+<input type="text" id="folio"
+placeholder="Folio">
+
+<input type="text" id="partida"
+placeholder="Partida">
+
+<input type="text" id="fecha_bautismo"
+placeholder="Fecha Bautismo">
+
+<input type="text" id="fecha_nacimiento"
+placeholder="Fecha Nacimiento">
+
+<textarea id="padres"
+placeholder="Padres"></textarea>
+
+<textarea id="padrinos"
+placeholder="Padrinos"></textarea>
+
+<input type="text" id="celebrante"
+placeholder="Celebrante">
+
+<button class="btn-primary"
+type="submit">
+Guardar Registro
+</button>
+
+<button class="btn-secondary"
+type="button"
+onclick="resetForm()">
+Limpiar
+</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<div class="search-box">
+
+<input type="text"
+id="searchNombre"
+placeholder="Buscar por nombre...">
+
+<br><br>
+
+<input type="text"
+id="searchLibro"
+placeholder="Buscar por libro...">
+
+<br><br>
+
+<input type="text"
+id="searchFolio"
+placeholder="Buscar por folio exacto...">
+
+<br><br>
+
+<button class="btn-primary"
+onclick="mostrarResumen()">
+Ver Resumen Anual
+</button>
+
+<button class="btn-secondary"
+onclick="window.open('/api/reporte-anual-pdf')">
+PDF Resumen
+</button>
+
+<div id="summaryBox"></div>
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Bautizado</th>
+<th>Fecha</th>
+<th>Libro</th>
+<th>Folio</th>
+<th>Partida</th>
+<th>Nacimiento</th>
+<th>Padres</th>
+<th>Padrinos</th>
+<th>Celebrante</th>
+<th>PDF</th>
+<th>Opciones</th>
+
+</tr>
+
+</thead>
+
+<tbody id="recordsTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+const role = "{{ role }}";
+</script>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
+

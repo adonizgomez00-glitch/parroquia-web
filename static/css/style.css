@@ -1,0 +1,203 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+    color:#111827;
+    padding:20px;
+}
+
+.container{
+    max-width:1600px;
+    margin:auto;
+}
+
+.header{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+h1{
+    font-size:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+input,
+textarea,
+button{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    font-size:15px;
+}
+
+button{
+    cursor:pointer;
+    font-weight:bold;
+    border:none;
+}
+
+.btn-primary{
+    background:#2563eb;
+    color:white;
+}
+
+.btn-danger{
+    background:#dc2626;
+    color:white;
+}
+
+.btn-secondary{
+    background:#6b7280;
+    color:white;
+}
+
+.search-box{
+    margin-bottom:20px;
+}
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:10px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:left;
+    vertical-align:top;
+    font-size:14px;
+}
+
+th{
+    background:#f9fafb;
+}
+
+.actions{
+    display:flex;
+    gap:5px;
+}
+
+.small-btn{
+    padding:8px 12px;
+    font-size:12px;
+}
+
+.summary-card{
+    background:white;
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+}
+
+@media(max-width:900px){
+
+    body{
+        padding:10px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:15px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td{
+        display:block;
+        width:100%;
+    }
+
+    thead{
+        display:none;
+    }
+
+    tr{
+        background:white;
+        margin-bottom:18px;
+        padding:15px;
+        border-radius:12px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    td{
+        border:none;
+        display:flex;
+        flex-direction:column;
+        gap:5px;
+        padding:10px 0;
+        font-size:15px;
+        word-break:break-word;
+    }
+
+    td::before{
+        font-weight:bold;
+        color:#374151;
+        font-size:14px;
+    }
+
+    td:nth-child(1)::before { content:'ID'; }
+    td:nth-child(2)::before { content:'Bautizado'; }
+    td:nth-child(3)::before { content:'Fecha Bautismo'; }
+    td:nth-child(4)::before { content:'Libro'; }
+    td:nth-child(5)::before { content:'Folio'; }
+    td:nth-child(6)::before { content:'Partida'; }
+    td:nth-child(7)::before { content:'Nacimiento'; }
+    td:nth-child(8)::before { content:'Padres'; }
+    td:nth-child(9)::before { content:'Padrinos'; }
+    td:nth-child(10)::before { content:'Celebrante'; }
+    td:nth-child(11)::before { content:'PDF'; }
+    td:nth-child(12)::before { content:'Opciones'; }
+
+    .actions{
+        display:flex;
+        gap:10px;
+    }
+
+    .small-btn{
+        flex:1;
+        font-size:14px;
+        padding:10px;
+    }
+}
+
+
